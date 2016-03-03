@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Admissions Portal | IIT(BHU) Varanasi</title>
+
+    <!-- core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/css/prettyPhoto.css" rel="stylesheet">
+    <link href="/static/css/animate.min.css" rel="stylesheet">
+    <link href="/static/css/main.css" rel="stylesheet">
+    <link href="/static/css/responsive.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="/static/js/html5shiv.js"></script>
+    <script src="/static/js/respond.min.js"></script>
+    <![endif]-->
+    <script src="/static/js/numeric.js"></script>
+    <link rel="shortcut icon" href="/static/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/images/ico/apple-touch-icon-57-precomposed.png">
+
+ <script>
+//function showimage(){};
+function getdisc()
+{
+        if(document.phdform.dept1.value=="Department of Electrical Engineering")
+        {
+            document.getElementById('divdisc12').style.display = "none";
+            document.getElementById('divdisc11').style.display = "block";
+        }
+        else if(document.phdform.dept1.value=="Department of Mechanical Engineering")
+        {
+            document.getElementById('divdisc11').style.display = "none";
+            document.getElementById('divdisc12').style.display = "block";
+        }
+        else
+        {
+            document.getElementById('divdisc11').style.display = "none";
+            document.getElementById('divdisc12').style.display = "none";
+
+        }
+}
+
+function choicedept2()
+{
+        if(document.phdform.choice_dept2.value=="Yes")
+        {
+            document.getElementById('divdept2').style.display = "block";
+        }
+        else
+        {
+            document.getElementById('divdept2').style.display = "none";
+        }
+}
+function getdisc2()
+{
+        if(document.phdform.dept2.value=="Department of Electrical Engineering")
+        {
+            document.getElementById('divdisc22').style.display = "none";
+            document.getElementById('divdisc21').style.display = "block";
+        }
+        else if(document.phdform.dept2.value=="Department of Mechanical Engineering")
+        {
+            document.getElementById('divdisc21').style.display = "none";
+            document.getElementById('divdisc22').style.display = "block";
+        }
+        else
+        {
+            document.getElementById('divdisc21').style.display = "none";
+            document.getElementById('divdisc22').style.display = "none";
+
+        }
+}
+function choicedept3()
+{
+        if(document.phdform.choice_dept3.value=="Yes")
+        {
+            document.getElementById('divdept3').style.display = "block";
+        }
+        else
+        {
+            document.getElementById('divdept3').style.display = "none";
+        }
+}
+function getdisc3()
+{
+        if(document.phdform.dept3.value=="Department of Electrical Engineering")
+        {
+            document.getElementById('divdisc32').style.display = "none";
+            document.getElementById('divdisc31').style.display = "block";
+        }
+        else if(document.phdform.dept3.value=="Department of Mechanical Engineering")
+        {
+            document.getElementById('divdisc31').style.display = "none";
+            document.getElementById('divdisc32').style.display = "block";
+        }
+        else
+        {
+            document.getElementById('divdisc31').style.display = "none";
+            document.getElementById('divdisc32').style.display = "none";
+
+        }
+}
+
+</script>
+</head><!--/head-->
+
+<body>
+
+    <header id="header">
+
+       <div class="container">
+  <div class="row">
+      <div class="col-sm-4"><img src="/static/images/blank.png" style="height: 120px;width: 1000px;left-margin: 0px" align="center" /></div>
+  </div>
+      </div>
+<div>
+
+</div>
+    </header><!--/header-->
+    <h2 align="center">PhD Admissions Application Form</h2>
+    <div class="container">
+<h1>Registration Form</h1>{% if user.is_authenticated %}<div class="container>"> <p align="right">Application ID :<b> {{ request.user.username }}</b><br>Click here to <a href="/register/logout/">Logout</a> </div>{% endif %}
+
+    <div class="container">
+        <fieldset>
+            <legend >Personal Information :</legend>
+            <div class="row">
+            <label for="full_name" class="col-sm-2">Full Name : </label>
+            <div class="col-xs-4">{{ form_data.full_name }}</div>
+                </div>
+            <div class="row">
+            <label for="mother_name" class="col-sm-2">Mother Name : </label>
+            <div class="col-xs-4">{{ form_data.mother_name }}</div>
+                </div>
+            <div class="row">
+            <label for="father_name" class="col-sm-2">Father Name : </label>
+            <div class="col-xs-4">{{ form_data.father_name }}</div>
+                </div>
+            <div class="row">
+            <label for="dob" class="col-sm-2">Date of Birth : </label>
+            <div class="col-xs-4">{{ form_data.dob }}</div>
+                <label for="gender" class="col-sm-2">Gender : </label>
+                <div class="col-xs-2">{{ form_data.gender }} </div>
+                </div>
+            <div class="row">
+            <label for="nation" class="col-sm-2">Nationality : </label>
+            <div class="col-xs-4">{{ form_data.nation }}</div>
+                <label for="category" class="col-sm-2">Category : </label>
+                <div class="col-xs-2">{{ form_data.category }} </div>
+                </div>
+            <div class="row">
+            <label for="phys" class="col-sm-2">Physical disability status : </label>
+            <div class="col-xs-4">{{ form_data.phys }}</div>
+                <label for="mobile" class="col-sm-2">Mobile No. : </label>
+                <div class="col-xs-2">{{ form_data.mobile }} </div>
+                </div>
+            <div class="row">
+            <label for="perma_addr" class="col-sm-2">Permanent Address : </label>
+            <div class="col-xs-4">{{ form_data.perma_addr }}</div>
+                <label for="corres_addr" class="col-sm-2">Address for Correspondence : </label>
+                <div class="col-xs-2">{{ form_data.corres_addr }} </div>
+                </div>
+        </fieldset>
+    </div>
+        <div class="container" style="background-color:#AEC8D2;">
+        <p>
+            <b style="color: red;">Note : </b>Applicants should refer the information brochure and corrigendum before start filling
+
+the online application form. All fields are mandatory. Write NA in fields which are not
+
+applicable to you.
+        </p>
+
+</div>
+    <form onsubmit="return check() " id="form_reg" action="/register/phd/" name="phdform" method="POST" enctype="multipart/form-data" class="form-horizontal" role="form">{% csrf_token %}
+        <div class="container" style="background-color:#AEC8D2;">
+            <p>
+                <b style="color: black;"> Instructions for Payment :</b>Pay the application processing fee online (<a href="www.onlinesbi.com/prelogin/icollecthome.htm"> www.onlinesbi.com/prelogin/icollecthome.htm</a>) and enter the e-receipt details. The application processing fee (Rs.500.00 for GEN/OBC/PC candidates and Rs. 250.00 for SC/ST candidates) should be paid ONLINE ONLY and is NON-REFUNDABLE.
+            </p>
+
+        </div>
+
+
+
+        <fieldset>
+            <legend>Application processing fee</legend>
+            <div class="form-group">
+                <label for="amount" class="control-label col-sm-2">Amount to be paid : </label>
+                {% if user_data.category == "GEN" or "OBC" %}
+                <div class="col-xs-5">
+                    <input type="text" name="amt1" size="20" value="500" readonly/>
+                    {% else %}
+                    <input type="text" name="amt1" size="20" value="250" readonly/>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ereceipt" class="control-label col-sm-2">E Receipt no. :</label>
+                <div class="col-xs-5">
+                    <input type="text" name="ereceipt" size="20" value="{{ user_data.ereceipt }}" required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="dop" class="control-label col-sm-2">Date of Payment :</label>
+                <div class="col-xs-2">
+                    <input id="pay_date" type="date" name="dop"  size="20" value="{{ user_data.dop}}" required/>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="container" style="background-color:#AEC8D2;">
+            <p>
+                <b style="color: black;"> Department/School Selection :</b>
+                Note-1:Before selecting the choice of Ph.D. Programme, applicants are advised to refer to the information brochure (Table 1B, Page No.13) for the seats available in each departments/schools.
+                (Refer to the Information Brochure for the list of programmes/disciplines/specializations if any and number of seats available in various Departments/Schools)
+                Note-2:There are no Institute Assistantship available in discipline BC,EC,MS,PH & PY (Annexure-I).
+                Applicants who wish to apply to these discipline , are advized to contact the concerned departments before applying/submitting the applications. Candidates applying to these discipline should have external fellowship.
+            </p>
+        </div>
+        <fieldset>
+            <legend>PhD. Application Form </legend>
+        	<div class="form-group">
+            	<label for="std_status" class="control-label col-sm-2">Student Status : </label>
+                <div class="col-xs-5">
+                    <select name="std_status" id="std_status" required>
+                            <option value="null" selected="selected">Select From The List</option>
+                            <option value="Full-Time  Regular"{% if user_data.std_status == "Full-Time  Regular" %} selected="selected" {% endif %}> Full-Time  Regular</option>
+                            <option value="Full-time Sponsored"{% if user_data.std_status == "Full-time Sponsored" %} selected="selected" {% endif %}>Full-time Sponsored</option>
+                            <option value="Part-Time"{% if user_data.std_status == "Part-Time" %} selected="selected" {% endif %}>Part-Time</option>
+                            <option value="External Registration"{% if user_data.std_status == "External Registration" %} selected="selected" {% endif %}>External Registration</option>
+                    </select>
+                </div>
+         	</div>
+
+            <div class="form-group">
+            	<label for="fin_status" class="control-label col-sm-2">Financial Status : </label>
+                    <div class="col-xs-5" >
+                        <select name="fin_status" id="fin_status" required>
+                                <option value="null" selected="selected">Select From The List</option>
+                                <option value="Institute Assistantship Required"{% if user_data.fin_status == "Institute Assistantship Required" %} selected="selected" {% endif %} >Institute Assistantship Required</option>
+                                <option value="Awarded External Fellowship"{% if user_data.fin_status == "Awarded External Fellowship" %} selected="selected" {% endif %}>Awarded External Fellowship</option>
+                                <option value="External Registration"{% if user_data.fin_status == "External Registration" %} selected="selected" {% endif %}>External Registration</option>
+                        </select>
+                    </div>
+            </div>
+        	<div class="form-group"> <label for="dept1" class="control-label col-sm-2"> Select the First Department/School you are applying for (Compulsory):</label>
+                <div class="col-xs-5" >
+                    <select name="dept1" id="dept1" onchange="getdisc()" required>
+                        <option value="null" selected="selected">Select From The List</option>
+                        <option value="Department of Ceramic Engineering"{% if user_data.disc_choice1 == "Department of Ceramic Engineering" %} selected="selected" {% endif %}>Department of Ceramic Engineering</option>
+                                <option value="Department of Chemical Engineering & Technology"{% if user_data.disc_choice1 == "Department of Chemical Engineering & Technology" %} selected="selected" {% endif %}>Department of Chemical Engineering & Technology</option>
+                                <option value="Department of Computer Engineering"{% if user_data.disc_choice1 == "Department of Computer Engineering" %} selected="selected" {% endif %}>Department of Computer Engineering</option>
+                                <option value="Department of Civil Engineering"{% if user_data.disc_choice1 == "Department of Civil Engineering" %} selected="selected" {% endif %}>Department of Civil Engineering</option>
+                                <option value="Department of Electrical Engineering"{% if user_data.disc_choice1 == "Department of Electrical Engineering" %} selected="selected" {% endif %}>Department of Electrical Engineering</option>
+                                <option value="Department of Electronics Engineering"{% if user_data.disc_choice1 == "Department of Electronics Engineering" %} selected="selected" {% endif %}>Department of Electronics Engineering</option>
+                                <option value="Department of Mechanical Engineering"{% if user_data.disc_choice1 == "Department of Mechanical Engineering" %} selected="selected" {% endif %}>Department of Mechanical Engineering</option>
+                                <option value="Department of Metallurgical Engineering"{% if user_data.disc_choice1 == "Department of Metallurgical Engineering" %} selected="selected" {% endif %}>Department of Metallurgical Engineering</option>
+                                <option value="Department of Mining Engineering"{% if user_data.disc_choice1 == "Department of Mining Engineering" %} selected="selected" {% endif %}>Department of Mining Engineering</option>
+                                <option value="Department of Pharmaceutics"{% if user_data.disc_choice1 == "Department of Pharmaceutics" %} selected="selected" {% endif %}>Department of Pharmaceutics</option>
+                                <option value="School of Biochemical Engineering"{% if user_data.disc_choice1 == "School of Biochemical Engineering" %} selected="selected" {% endif %}>School of Biochemical Engineering</option>
+                                <option value="School of Biomedical Engineering"{% if user_data.disc_choice1 == "School of Biomedical Engineering" %} selected="selected" {% endif %}>School of Biomedical Engineering</option>
+                                <option value="School of Materials Science & Technology"{% if user_data.disc_choice1 == "School of Materials Science & Technology" %} selected="selected" {% endif %}>School of Materials Science & Technology</option>
+                                <option value="Department of Chemistry"{% if user_data.disc_choice1 == "Department of Chemistry" %} selected="selected" {% endif %}>Department of Chemistry</option>
+                                <option value="Department of Humanistic Studies"{% if user_data.disc_choice1 == "Department of Humanistic Studies" %} selected="selected" {% endif %}>Department of Humanistic Studies</option>
+                                <option value="Department of Physics"{% if user_data.disc_choice1 == "Department of Physics" %} selected="selected" {% endif %}>Department of Physics</option>
+                                <option value="Mathematical Sciences"{% if user_data.disc_choice1 == "Mathematical Sciences" %} selected="selected" {% endif %}>Mathematical Sciences</option>
+                    </select>
+                </div>
+           	</div>
+
+            <div class="form-group" name="divdisc11" id="divdisc11" hidden>
+
+                <label for="disc1" class="control-label col-sm-2">Select the Discipline:(Wherever Applicable):</label>
+                <div class="col-xs-5" >
+                    		<select name="disc11" id="disc11" required>
+                            	<option value="null" selected="selected">Select From The List</option>
+                                <option value="Electrical Engineering"{% if user_data.spec_choice1 == "Electrical Engineering" %} selected="selected" {% endif %} >Electrical Engineering</option>
+                                <option value="Systems Engineering"{% if user_data.spec_choice1 == "Systems Engineering" %} selected="selected" {% endif %} >Systems Engineering</option>
+    `                       </select>
+                </div>
+           	</div>
+
+            {% if user_data.disc_choice1 == "Department of Electrical Engineering" %}
+               <script>
+                document.getElementById('divdisc11').style.display = "block";
+                </script>
+            {% endif %}
+
+            <div class="form-group" name="divdisc12" id="divdisc12" hidden>
+
+                <label for="disc1" class="control-label col-sm-2">Select the Discipline:(Wherever Applicable):</label>
+                <div class="col-xs-5" >
+                        <select name="disc12" id="disc12" required>
+                                <option value="null" selected="selected">Select From The List</option>
+                                <option value="Mechanical Engineering"{% if user_data.spec_choice1 == "Mechanical Engineering" %} selected="selected" {% endif %}>Mechanical Engineering</option>
+                                <option value="Industrial Management"{% if user_data.spec_choice1 == "Industrial Management" %} selected="selected" {% endif %}>Industrial Management</option>
+    `                   </select>
+                </div>
+           	</div>
+            {% if user_data.disc_choice1 == "Department of Mechanical Engineering" %}
+               <script>
+                document.getElementById('divdisc12').style.display = "block";
+                </script>
+            {% endif %}
+
+     		<div class="container" style="background-color:#AEC8D2;">
+        		<p>
+            		<b style="color: black;"> Would you like to apply for additional Department/School? If yes, then select the Department, and Dicipline if any, from the list provided below. :</b><br>
+            	Note-:(Please refer the information brochure for the eligibility criteria for applying for additional programmes.)
+         		</p>
+    		</div>
+
+        	<div class="form-group">
+            	<label for="dept2" class="control-label col-sm-2"> Select the Choice1:</label>
+            	<div class="col-xs-5">
+                	<select name="choice_dept2" id="choice_dept2" onchange="choicedept2()" required>
+                        <option value="null" selected="selected">Select From The List</option>
+                    	<option value="Yes"{% if user_data.choice_prg2 == "Yes" %} selected="selected" {% endif %}>Yes</option>
+                    	<option value="No"{% if user_data.choice_prg2 == "No" %} selected="selected" {% endif %}>No</option>
+                	</select>
+            	</div>
+
+        	</div>
+
+       		<div class="form-group" id="divdept2" hidden>
+         		<div class="form-group" >
+             		<label for="dept2" class="control-label col-sm-2"> Select the Second Department/School you are applying for (Optional):</label>
+
+                    <div class="col-xs-5" >
+                        <select name="dept2" id="dept2" onchange="getdisc2()" required>
+                                <option value="null" selected="selected">Select From The List</option>
+                                <option value="Department of Ceramic Engineering"{% if user_data.disc_choice2 == "Department of Ceramic Engineering" %} selected="selected" {% endif %}>Department of Ceramic Engineering</option>
+                                <option value="Department of Chemical Engineering & Technology"{% if user_data.disc_choice2 == "Department of Chemical Engineering & Technology" %} selected="selected" {% endif %}>Department of Chemical Engineering & Technology</option>
+                                <option value="Department of Computer Engineering"{% if user_data.disc_choice2 == "Department of Computer Engineering" %} selected="selected" {% endif %}>Department of Computer Engineering</option>
+                                <option value="Department of Civil Engineering"{% if user_data.disc_choice2 == "Department of Civil Engineering" %} selected="selected" {% endif %}>Department of Civil Engineering</option>
+                                <option value="Department of Electrical Engineering"{% if user_data.disc_choice2 == "Department of Electrical Engineering" %} selected="selected" {% endif %}>Department of Electrical Engineering</option>
+                                <option value="Department of Electronics Engineering"{% if user_data.disc_choice2 == "Department of Electronics Engineering" %} selected="selected" {% endif %}>Department of Electronics Engineering</option>
+                                <option value="Department of Mechanical Engineering"{% if user_data.disc_choice2 == "Department of Mechanical Engineering" %} selected="selected" {% endif %}>Department of Mechanical Engineering</option>
+                                <option value="Department of Metallurgical Engineering"{% if user_data.disc_choice2 == "Department of Metallurgical Engineering" %} selected="selected" {% endif %}>Department of Metallurgical Engineering</option>
+                                <option value="Department of Mining Engineering"{% if user_data.disc_choice2 == "Department of Mining Engineering" %} selected="selected" {% endif %}>Department of Mining Engineering</option>
+                                <option value="Department of Pharmaceutics"{% if user_data.disc_choice2 == "Department of Pharmaceutics" %} selected="selected" {% endif %}>Department of Pharmaceutics</option>
+                                <option value="School of Biochemical Engineering"{% if user_data.disc_choice2 == "School of Biochemical Engineering" %} selected="selected" {% endif %}>School of Biochemical Engineering</option>
+                                <option value="School of Biomedical Engineering"{% if user_data.disc_choice2 == "School of Biomedical Engineering" %} selected="selected" {% endif %}>School of Biomedical Engineering</option>
+                                <option value="School of Materials Science & Technology"{% if user_data.disc_choice2 == "School of Materials Science & Technology" %} selected="selected" {% endif %}>School of Materials Science & Technology</option>
+                                <option value="Department of Chemistry"{% if user_data.disc_choice2 == "Department of Chemistry" %} selected="selected" {% endif %}>Department of Chemistry</option>
+                                <option value="Department of Humanistic Studies"{% if user_data.disc_choice2 == "Department of Humanistic Studies" %} selected="selected" {% endif %}>Department of Humanistic Studies</option>
+                                <option value="Department of Physics"{% if user_data.disc_choice2 == "Department of Physics" %} selected="selected" {% endif %}>Department of Physics</option>
+                                <option value="Mathematical Sciences"{% if user_data.disc_choice2 == "Mathematical Sciences" %} selected="selected" {% endif %}>Mathematical Sciences</option>
+
+                        </select>
+                    </div>
+                </div>
+
+                 {% if user_data.choice_prg2 == "Yes" %}
+               <script>
+                document.getElementById('divdept2').style.display = "block";
+                </script>
+            {% endif %}
+
+                <div class="form-group" name="divdisc21" id="divdisc21" hidden>
+
+                    <label for="disc21" class="control-label col-sm-2">Select the Discipline:(Wherever Applicable):</label>
+                    <div class="col-xs-5" >
+                        <select name="disc21" id="disc21" required>
+                            <option value="null" selected="selected">Select From The List</option>
+                                <option value="Electrical Engineering"{% if user_data.spec_choice2 == "Electrical Engineering" %} selected="selected" {% endif %} >Electrical Engineering</option>
+                                <option value="Systems Engineering"{% if user_data.spec_choice2 == "Systems Engineering" %} selected="selected" {% endif %} >Systems Engineering</option>
+                           </select>
+                    </div>
+                </div>
+
+                {% if user_data.disc_choice2 == "Department of Electrical Engineering" %}
+               <script>
+                document.getElementById('divdisc21').style.display = "block";
+                </script>
+                {% endif %}
+
+            	<div class="form-group" name="divdisc22" id="divdisc22" hidden>
+
+                	<label for="disc22" class="control-label col-sm-2">Select the Discipline:(Wherever Applicable):</label>
+                    <div class="col-xs-5" >
+                        <select name="disc22" id="disc22" required>
+                            <option value="null" selected="selected">Select From The List</option>
+                                <option value="Mechanical Engineering"{% if user_data.spec_choice2 == "Mechanical Engineering" %} selected="selected" {% endif %}>Mechanical Engineering</option>
+                                <option value="Industrial Management"{% if user_data.spec_choice2 == "Industrial Management" %} selected="selected" {% endif %}>Industrial Management</option>
+
+        `              </select>
+                    </div>
+            	</div>
+         	</div>
+
+            {% if user_data.disc_choice2 == "Department of Mechanical Engineering" %}
+               <script>
+                document.getElementById('divdisc22').style.display = "block";
+                </script>
+            {% endif %}
+
+            <div class="form-group">
+            	<label for="dept3" class="control-label col-sm-2"> Select the Choice2:</label>
+            	<div class="col-xs-5">
+                	<select name="choice_dept3" id="choice_dept3" onchange="choicedept3()" required>
+                        <option value="null" selected="selected">Select From The List</option>
+                    	<option value="Yes"{% if user_data.choice_prg3 == "Yes" %} selected="selected" {% endif %}>Yes</option>
+                    	<option value="No"{% if user_data.choice_prg3 == "No" %} selected="selected" {% endif %}>No</option>
+                	</select>
+            	</div>
+        	</div>
+
+       		<div class="form-group" id="divdept3" hidden>
+         		<div class="form-group" >
+             		<label for="dept1" class="control-label col-sm-2"> Select the Second Department/School you are applying for (Optional):</label>
+
+                    <div class="col-xs-5" >
+                        <select name="dept3" id="dept3" onchange="getdisc3()" required>
+                            <option value="null" selected="selected">Select From The List</option>
+                        <option value="Department of Ceramic Engineering"{% if user_data.disc_choice3 == "Department of Ceramic Engineering" %} selected="selected" {% endif %}>Department of Ceramic Engineering</option>
+                                <option value="Department of Chemical Engineering & Technology"{% if user_data.disc_choice3 == "Department of Chemical Engineering & Technology" %} selected="selected" {% endif %}>Department of Chemical Engineering & Technology</option>
+                                <option value="Department of Computer Engineering"{% if user_data.disc_choice3 == "Department of Computer Engineering" %} selected="selected" {% endif %}>Department of Computer Engineering</option>
+                                <option value="Department of Civil Engineering"{% if user_data.disc_choice3 == "Department of Civil Engineering" %} selected="selected" {% endif %}>Department of Civil Engineering</option>
+                                <option value="Department of Electrical Engineering"{% if user_data.disc_choice3 == "Department of Electrical Engineering" %} selected="selected" {% endif %}>Department of Electrical Engineering</option>
+                                <option value="Department of Electronics Engineering"{% if user_data.disc_choice3 == "Department of Electronics Engineering" %} selected="selected" {% endif %}>Department of Electronics Engineering</option>
+                                <option value="Department of Mechanical Engineering"{% if user_data.disc_choice3 == "Department of Mechanical Engineering" %} selected="selected" {% endif %}>Department of Mechanical Engineering</option>
+                                <option value="Department of Metallurgical Engineering"{% if user_data.disc_choice3 == "Department of Metallurgical Engineering" %} selected="selected" {% endif %}>Department of Metallurgical Engineering</option>
+                                <option value="Department of Mining Engineering"{% if user_data.disc_choice3 == "Department of Mining Engineering" %} selected="selected" {% endif %}>Department of Mining Engineering</option>
+                                <option value="Department of Pharmaceutics"{% if user_data.disc_choice3 == "Department of Pharmaceutics" %} selected="selected" {% endif %}>Department of Pharmaceutics</option>
+                                <option value="School of Biochemical Engineering"{% if user_data.disc_choice3 == "School of Biochemical Engineering" %} selected="selected" {% endif %}>School of Biochemical Engineering</option>
+                                <option value="School of Biomedical Engineering"{% if user_data.disc_choice3 == "School of Biomedical Engineering" %} selected="selected" {% endif %}>School of Biomedical Engineering</option>
+                                <option value="School of Materials Science & Technology"{% if user_data.disc_choice3 == "School of Materials Science & Technology" %} selected="selected" {% endif %}>School of Materials Science & Technology</option>
+                                <option value="Department of Chemistry"{% if user_data.disc_choice3 == "Department of Chemistry" %} selected="selected" {% endif %}>Department of Chemistry</option>
+                                <option value="Department of Humanistic Studies"{% if user_data.disc_choice3 == "Department of Humanistic Studies" %} selected="selected" {% endif %}>Department of Humanistic Studies</option>
+                                <option value="Department of Physics"{% if user_data.disc_choice3 == "Department of Physics" %} selected="selected" {% endif %}>Department of Physics</option>
+                                <option value="Mathematical Sciences"{% if user_data.disc_choice3 == "Mathematical Sciences" %} selected="selected" {% endif %}>Mathematical Sciences</option>
+
+                    	</select>
+                    </div>
+                </div>
+
+                 {% if user_data.choice_prg3 == "Yes" %}
+               <script>
+                document.getElementById('divdept3').style.display = "block";
+                </script>
+            {% endif %}
+
+
+                <div class="form-group" name="divdisc31" id="divdisc31" hidden>
+
+                    <label for="disc1" class="control-label col-sm-2">Select the Discipline:(Wherever Applicable):</label>
+                    <div class="col-xs-5" >
+                    	<select name="disc31" id="disc31" required>
+                        	<option value="null" selected="selected">Select From The List</option>
+                                <option value="Electrical Engineering"{% if user_data.spec_choice3 == "Electrical Engineering" %} selected="selected" {% endif %} >Electrical Engineering</option>
+                                <option value="Systems Engineering"{% if user_data.spec_choice3 == "Systems Engineering" %} selected="selected" {% endif %} >Systems Engineering</option>
+
+                      </select>
+                 	</div>
+            	</div>
+
+                {% if user_data.disc_choice3 == "Department of Electrical Engineering" %}
+               <script>
+                document.getElementById('divdisc31').style.display = "block";
+                </script>
+                {% endif %}
+
+            <div class="form-group" name="divdisc32" id="divdisc32" hidden>
+
+                <label for="disc32" class="control-label col-sm-2">Select the Discipline:(Wherever Applicable):</label>
+                <div class="col-xs-5" >
+                    <select name="disc32" id="disc32" required>
+                            <option value="null" selected="selected">Select From The List</option>
+                                <option value="Mechanical Engineering"{% if user_data.spec_choice3 == "Mechanical Engineering" %} selected="selected" {% endif %}>Mechanical Engineering</option>
+                                <option value="Industrial Management"{% if user_data.spec_choice3 == "Industrial Management" %} selected="selected" {% endif %}>Industrial Management</option>
+                    </select>
+                </div>
+    		</div>
+        </div>
+
+            {% if user_data.disc_choice3 == "Department of Mechanical Engineering" %}
+               <script>
+                document.getElementById('divdisc32').style.display = "block";
+                </script>
+            {% endif %}
+        </fieldset>
+
+        <div class="container" style="background-color:#AEC8D2;">
+            <p>
+                <b style="color: black;">Whether qualified GATE/GPAT/UGC-CSIR/NET or any other fellowship exam:</b><br>
+                Note-1: For P.hD. Programmes GATE/GPAT/CSIR/NET Qualify is mandatory for Institute assistantship.<br>
+                Note-2: Btech/B.Pharm/Mtech/MPharm graduates from IIT having a CPI or CGPA of 8.0 and above in a 10 point scale are exempted from GATE/GPAT /UGC-CSIR/NET and eligible for Institute assistantship.
+            </p>
+        </div>
+
+        <fieldset>
+            <legend>Qualifying Entrance Examination details</legend>
+            <div class="form-group">
+                <label for="gatestatus" class="control-label col-sm-2">Choose the Appropriate Category of Examination:</label>
+                <div class="col-xs-5">
+                    <select name="gatestatus" id="gatestatus" onchange = "examinationChange()" required>
+                        <option value="null" selected="selected">Select From The List</option>
+                        <option value="GATE/GPAT Exempted"{% if user_data.gatestatus == "GATE/GPAT Exempted" %} selected="selected" {% endif %}>GATE/GPAT Exempted</option>
+                        <option value="Gate/GPAT Qualified"{% if user_data.gatestatus == "Gate/GPAT Qualified" %} selected="selected" {% endif %}>Gate/GPAT Qualified</option>
+                        <option value="UGC-CSIR-NET Qualified"{% if user_data.gatestatus == "UGC-CSIR-NET Qualified" %} selected="selected" {% endif %}>UGC-CSIR-NET Qualified</option>
+                        <option value="Sponsored"{% if user_data.gatestatus == "Sponsored" %} selected="selected" {% endif %}>Sponsored*</option>
+                        <option value="Other External Fellowships"{% if user_data.gatestatus == "Other External Fellowships" %} selected="selected" {% endif %}>Other External Fellowships</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="check2" hidden>
+
+                <div class="form-group"> <label for="gate_exam" class="control-label col-sm-2">Exam Name :</label>
+                    <div class="col-xs-5">
+                        <select name="gate_exam"  >
+                            <option value="GATE">GATE</option>
+                            <option value="GPAT">GPAT</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="gate_roll" class="control-label col-sm-2">Exam Roll/Reg.No. :</label>
+                    <div class="col-xs-5">  <input type="text" name="gate_roll" value="{{ user_data.gate_roll }}" size="20" /></div>
+                </div>
+
+                <div class="form-group"> 
+                    <label for="gate_year" class="control-label col-sm-2">Exam Year : </label>
+                    <div class="col-xs-5"> 
+                        <input type="text" name="gate_year" value="{{ user_data.gate_year }}" size="20"/>
+                    </div>
+                </div>
+
+                <div class="form-group"> 
+                    <label for="gate_disc" class="control-label col-sm-2">Exam Discipline : </label>
+                    <div class="col-xs-5"> 
+                        <input type="text" name="gate_disc" value="{{ user_data.gate_disc }}" size="50" />
+                    </div>
+                </div>
+
+                <div class="form-group"> <label for="gate_rank" class="control-label col-sm-2">Exam Rank : </label>
+                    <div class="col-xs-5"> <input type="text" name="gate_rank" value="{{ user_data.gate_rank }}" size="20" /></div>
+                </div>
+
+                <div class="form-group"> <label for="gate_score" class="control-label col-sm-2">Exam Score : </label>
+                    <div class="col-xs-5"> <input type="text" name="gate_score" value="{{ user_data.gate_score }}" size="20" /></div>
+                </div>
+
+                <div class="form-group"> <label for="score_card" class="control-label col-sm-2">Gate Scorecard :</label>
+                    <div class="col-xs-5">{{ image_form.score_card }}</div>
+                </div>
+            </div>
+            <div id="check3" hidden>
+
+                <div class="form-group"> <label for="net_exam" class="control-label col-sm-2">Exam Name :</label>
+                    <div class="col-xs-5">
+                            <select name="net_exam"  >
+                                    <option value="GATE">UGC-NET</option>
+                                    <option value="GPAT">UGC-CSIR</option>
+                            </select>
+                    </div> 
+                </div>
+
+                <div class="form-group"> <label for="net_roll" class="control-label col-sm-2">Exam Roll/Reg.No. :</label>
+                    <div class="col-xs-5">  <input type="text" name="net_roll" value="{{ user_data.gate_roll }}" size="20" /></div>
+                </div>
+
+                <div class="form-group"> <label for="net_year" class="control-label col-sm-2">Exam Year : </label>
+                    <div class="col-xs-5"> <input type="text" name="net_year" value="{{ user_data.gate_year }}" size="20" /></div>
+                </div>
+
+                <div class="form-group"> <label for="net_disc" class="control-label col-sm-2">Exam Discipline : </label>
+                    <div class="col-xs-5"> <input type="text" name="net_disc" value="{{ user_data.gate_disc }}" size="50" /></div>
+                </div>
+
+                <div class="form-group"> <label for="net_rank" class="control-label col-sm-2">Exam Rank : </label>
+                    <div class="col-xs-5"> <input type="text" name="net_rank" value="{{ user_data.gate_rank }}" size="20" /></div>
+                </div>
+
+                <div class="form-group"> <label for="net_score" class="control-label col-sm-2">Exam Score : </label>
+                    <div class="col-xs-5"> <input type="text" name="net_score" value="{{ user_data.gate_score }}" size="20" /></div>
+                </div>
+
+
+            </div>
+
+            <div id="check4" hidden>
+                <div class="form-group"> <label for="gate_exam" class="control-label col-sm-2">Details of Scholarship :</label>
+                    <div class="col-xs-5">  <input type="text" name="detail_scholar" value="{{ user_data.detail_scholar }}" size="50" /></div>
+                </div>
+
+            </div>
+
+        </fieldset>
+
+
+        {% if user_data.gatestatus == "Gate/GPAT Qualified" %}
+            <script>
+            document.getElementById('check2').style.display = "block";
+            </script>
+        {% endif %}
+
+        {% if user_data.gatestatus == "UGC-CSIR-NET Qualified" %}
+
+            <script> document.getElementById('check3').style.display = "block";  </script>
+        {% endif %}
+
+        {% if user_data.gatestatus == "Other External Fellowships" %}
+            <script>document.getElementById('check4').style.display = "block";</script>
+        {% endif %}
+
+
+        <fieldset>
+            <legend>Qualifying Degree details : </legend>
+            <div class="form-group"> <label for="status_deg" class="control-label col-sm-2">Degree : </label>
+                <div class="col-xs-5"> 
+                    <select for="status_deg" name="quali_degree"  >
+                        <option name="status_deg1" value="UG Degree" selected>UG Degree</option>
+                        <option name="status_deg1" value="PG Degree">PG Degree </option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group"> <label for="status_deg" class="control-label col-sm-2">Degree Status : </label>
+                <div class="col-xs-5">
+                    <select for="status_deg" name="status_deg" >
+                        <option name="status_deg2" value="Completed" selected>Completed</option>
+                        <option name="status_deg2" value="Appearing">Appearing</option>
+                        <option name="status_deg2" value="Appeared" selected>Appeared</option>
+                     </select>
+               </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="degree_name" class="control-label col-sm-2">Name of Degree : </label>
+                <div class="col-xs-5">
+                    <input id="degree" type="text" name="degree_name" value="{{ user_data.degree_name }}" size="50" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="univ_name" class="control-label col-sm-2">University Name : </label>
+                <div class="col-xs-5">
+                    <input id="univ" type="text" name="univ_name" value="{{ user_data.univ_name }}" size="50" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="degree_disc" class="control-label col-sm-2">Discipline : </label>
+                <div class="col-xs-5">
+                    <input id="disc" type="text" name="degree_disc" value="{{ user_data.degree_disc }}" size="50" />
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="year_passing" class="control-label col-sm-2">Passing/Final Exam Year : </label>
+                <div class="col-xs-5">
+                    <input id="unipass_year" type="text" name="year_passing" value="{{ user_data.year_passing }}" size="20" />
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="aggre_per" class="control-label col-sm-2">Final/Aggregate Percentage or CGPA : </label>
+                <div class="col-xs-5">
+                    <input id="cgpa" type="text" name="aggre_per" value="{{ user_data.aggre_per }}" size="20" />
+                </div>
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Intermediate (+2) : </legend>
+
+            <div class="form-group"> 
+                <label for="inter_cert_name" class="control-label col-sm-2">Name of Certificate : </label>
+                <div class="col-xs-5">
+                    <input id="certi" type="text" name="inter_cert_name" value="{{ user_data.inter_cert_name }}" size="50" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inter_board_name" class="control-label col-sm-2">Name of Board : </label>
+                <div class="col-xs-5">
+                    <input id="board" type="text" name="inter_board_name" value="{{ user_data.inter_board_name }}" size="50" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inter_sub" class="control-label col-sm-2">Subjects : </label>
+                <div class="col-xs-5">
+                    <input id="sub" type="text" name="inter_sub" value="{{ user_data.inter_sub }}" size="50" />
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="inter_year_passing" class="control-label col-sm-2">Year of Passing : </label>
+                <div class="col-xs-5">
+                    <input id="schoolpass_year" type="text" name="inter_year_passing" value="{{ user_data.inter_year_passing }}" size="20" />
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="inter_aggre_per" class="control-label col-sm-2">Final Aggregate % or CGPA : </label>
+                <div class="col-xs-5">
+                    <input id="percentage" type="text" name="inter_aggre_per" value="{{ user_data.inter_aggre_per }}" size="20" />
+                </div>
+            </div>
+
+        </fieldset>
+
+
+        <fieldset>
+            <legend>High School : </legend>
+            <div class="form-group"> 
+                <label for="high_cert_name" class="control-label col-sm-2">Name of Certificate : </label>
+                <div class="col-xs-5">
+                <input id="high_certi" type="text" name="high_cert_name" value="{{ user_data.high_cert_name }}" size="50" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="high_board_name" class="control-label col-sm-2">Name of Board : </label>
+                <div class="col-xs-5">
+                    <input id="high_board" type="text" name="high_board_name" value="{{ user_data.high_board_name }}" size="50" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="high_sub" class="control-label col-sm-2">Subjects : </label>
+                <div class="col-xs-5">
+                    <input id="high_sub" type="text" name="high_sub" value="{{ user_data.high_sub }}" size="50" />
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="high_year_passing" class="control-label col-sm-2">Year of Passing : </label>
+                <div class="col-xs-5">
+                    <input id="high_pass" type="text" name="high_year_passing" value="{{ user_data.high_year_passing }}" size="20" />
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="high_aggre_per" class="control-label col-sm-2">Final Aggregate % or CGPA : </label>
+                <div class="col-xs-5">
+                    <input id="high_per" type="text" name="high_aggre_per" value="{{ user_data.high_aggre_per }}" size="20" />
+                </div>
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Work experience(If applying under sponsored category):</legend>
+            <div class="form-group">
+                <label for="work_exp" class="control-label col-sm-2">Work Experience : </label>
+                <div class="col-xs-5" >
+                {% if user_data.work_exp == "N" %}
+                    <input name="work_exp" type="radio" id="wey" onchange="workshow()" value="Y" />Yes
+                    <input name="work_exp" type="radio" id="wen" onchange="workshow()"  value="N" checked />No
+                {% else %}
+                    <input name="work_exp" type="radio" id="wey" onchange="workshow()" value="Y" checked />Yes
+                    <input name="work_exp" type="radio" id="wen" onchange="workshow()"  value="N" />No
+                {% endif %}
+                </div>
+            </div>
+
+            <div id="wdata">    
+                <div class="form-group">
+                    <label for="period_from" class="control-label col-sm-2">Period From : </label>
+                    <div class="col-xs-2">
+                        <input type="month" name="period_from"  value="{{ user_data.period_from }}" size="20" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="period_to" class="control-label col-sm-2">Period To : </label>
+                    <div class="col-xs-2">
+                        <input type="month" name="period_to"  value="{{ user_data.period_to }}" size="20" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="work_org" class="control-label col-sm-2">Work Organization : </label>
+                    <div class="col-xs-5">
+                        <input type="text" name="work_org" size="50"  value="{{ user_data.work_org }}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="position" class="control-label col-sm-2">Position : </label>
+                    <div class="col-xs-5">
+                        <input type="text" name="position" size="50"  value="{{ user_data.position }}"/>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Publications : </legend>
+            <div class="form-group">
+                <label for="publica_status" class="control-label col-sm-2">Publication Status : </label>
+                <div class="col-xs-5">
+                    {% if user_data.publica_status == "N" %}
+                    <input type="radio" name="publica_status" id="pry" onchange="pubshow()" value="Y" />Yes
+                    <input type="radio" name="publica_status" id="prn" onchange="pubshow()"  value="N" checked/>No
+                    {% else %}
+                    <input type="radio" name="publica_status" id="pry" onchange="pubshow()" value="Y" checked />Yes
+                    <input type="radio" name="publica_status" id="prn" onchange="pubshow()"  value="N" />No
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="form-group" id="pubdata">
+                <label for="publica" class="control-label col-sm-2">Publications : </label>
+                <div class="col-xs-5">
+                    <input type="text" name="publica" size="50"  value="{{ user_data.publica }}" />
+                </div>
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Referee's details : </legend>
+            <div class="form-group">
+                <label for="refree1_name" class="control-label col-sm-2">Referee 1 Name : </label>
+                <div class="col-xs-5">
+                    <input type="text" name="refree1_name" size="50" value="{{ user_data.refree1_name }}"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="refree1_email" class="control-label col-sm-2">Referee 1 Email :</label>
+                <div class="col-xs-5">
+                    <input type="email" name="refree1_email" size="50"  value="{{ user_data.refree1_email}}"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="refree2_name" class="control-label col-sm-2">Referee 2 Name : </label>
+                <div class="col-xs-5">
+                    <input type="text" name="refree2_name" size="50" value="{{ user_data.refree2_name }}"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="refree2_email" class="control-label col-sm-2">Referee 2 Email :</label>
+                <div class="col-xs-5">
+                    <input type="email" name="refree2_email" size="50" value="{{ user_data.refree2_email }}"/>
+                </div>  
+            </div>
+        </fieldset>
+
+
+        <div class="form-group">
+            <input type="checkbox" id="checkes"/><b>Self Declaration</b>
+            <p>I   declare  t hat   the  information  provided  by me  on  this  application  form  is  correct   to  the  best   of  my  knowledge  and  belief .   I  understand  that   any  wilful misinterpretation  of   facts  will  result  in my  disqualification  and  dismissal  from  the  Institute  if  admitted.</p>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input id="save1" class="btn btn-default" type="submit" name="save" value="save"/>
+                <button class="btn btn-default"><a href="/register/view_formphd/" target="_blank">View</a> </button>
+                <button  class="btn btn-default" type="submit" name="submit" value="Submit"/>SUBMIT </div> </div>
+        </form>
+        </div>
+
+<script type="text/javascript">
+
+    //function showimage(){
+      //  document.getElementById('up_img').src = "{{ image_form.image }}";
+
+    //}
+    /*function readURL(input) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#up_img').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }   
+    }
+    
+    $("#image").change(function(){
+        readURL(this);
+    });
+*/
+    function check(){
+        if(document.getElementById("pay_date").value == "")
+        {
+            alert("Any Field should not be left blank");
+            document.getElementById("pay_date").focus();
+            return;
+
+        }
+        if(document.getElementById("univ").value == "")
+        {
+            alert("Any Field Field should not be left blank");
+            document.getElementById("univ").focus();
+            return;
+        }
+        console.log("helo12");
+        if( document.getElementById("disc").value == "" )
+        {
+            alert("Any Field should not be left blank");
+            document.getElementById("disc").focus();
+            return;
+        }
+        if( document.getElementById("unipass_year").value == "" )
+        {
+            alert("Any Field should not be left blank");
+            document.getElementById("unipass_year").focus();
+            return;
+        }
+        if( document.getElementById("cgpa").value == "" )
+        {
+            alert("Any Field should not be left blank")
+            document.getElementById("cgpa").focus();
+            return;
+        }
+        if( document.getElementById("certi").value == "" )
+        {
+            alert("Any Field should not be left blank")
+            document.getElementById("certi").focus();
+            return;
+        }
+        if( document.getElementById("board").value == "" )
+        {
+            alert("Any Field should not be left blank");
+            document.getElementById("board").focus();
+            return;
+        }
+        if( document.getElementById("sub").value == "" )
+        {
+            alert("Any Field should not be left blank")
+            document.getElementById("sub").focus();
+            return;
+        }
+        if( document.getElementById("schoolpass_year").value == "" )
+        {
+            alert("Any Field should not be left blank")
+            document.getElementById("schoolpass_year").focus();
+            return;
+        }
+        if(document.getElementById("percentage").value == "")
+        {
+            alert("Enter Date of Birth in valid format");
+            document.getElementById("percentage").focus();
+            return;
+
+        }
+        if( document.getElementById("high_certi").value == "" )
+        {
+            alert("Any Field should not be left blank")
+            document.getElementById("high_certi").focus();
+            return;
+        }
+        if( document.getElementById("high_board").value == "" )
+        {
+            alert("Any Field should not be left blank")
+            document.getElementById("high_board").focus();
+            return;
+        }
+
+        if( document.getElementById("high_per").value == "" )
+        {
+            alert("Any Field should not be left blank")
+            document.getElementById("high_per").focus();
+            return;
+        }
+
+        if( document.getElementById("high_sub").value == "" )
+        {
+            alert("Any Field should not be left blank")
+            document.getElementById("high_sub").focus();
+            return;
+        }
+    }
+
+    function workshow(){
+
+        var r1 = document.getElementById("wey");
+        var wdata = document.getElementById("wdata");
+        // console.log(r1.checked);
+        if(r1.checked)
+            wdata.style.display = "block";
+        else
+            wdata.style.display = "none";
+    }
+    workshow();
+    function pubshow(){
+
+        var r1 = document.getElementById("pry");
+        var wdata = document.getElementById("pubdata");
+        // console.log(r1.checked);
+        if(r1.checked)
+            wdata.style.display = "block";
+        else
+            wdata.style.display = "none";
+    }
+    pubshow();
+    
+    function reload()
+    {
+        document.getElementById("save1").click();
+        //console.log(request.POST);
+    }
+    function examinationChange()
+    {
+
+        if(document.phdform.gatestatus.value=="GATE/GPAT Exempted")
+        {
+
+            document.getElementById('check2').style.display = "none";
+            document.getElementById('check3').style.display = "none";
+            document.getElementById('check4').style.display = "none";
+
+        }
+        else if(document.phdform.gatestatus.value=="Sponsored")
+        {
+
+            document.getElementById('check2').style.display = "none";
+            document.getElementById('check3').style.display = "none";
+            document.getElementById('check4').style.display = "none";
+        }
+        else if(document.phdform.gatestatus.value=="Gate/GPAT Qualified")
+        {
+            document.getElementById('check2').style.display = "block";
+            document.getElementById('check3').style.display = "none";
+            document.getElementById('check4').style.display = "none";
+        }
+        else if(document.phdform.gatestatus.value=="UGC-CSIR-NET Qualified")
+        {
+            document.getElementById('check2').style.display = "none";
+            document.getElementById('check3').style.display = "block";
+            document.getElementById('check4').style.display = "none";
+        }
+        else if(document.phdform.gatestatus.value=="Other External Fellowships")
+        {
+            document.getElementById('check2').style.display = "none";
+            document.getElementById('check3').style.display = "none";
+            document.getElementById('check4').style.display = "block";
+        }
+        else
+        {
+            document.getElementById('check2').style.display = "none";
+            document.getElementById('check3').style.display = "none";
+            document.getElementById('check4').style.display = "none";
+
+        }
+
+    }
+
+</script>
+</body>
+
+</html>
